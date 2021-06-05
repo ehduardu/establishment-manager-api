@@ -8,8 +8,6 @@ export class EstablishmentController {
 
     const [allEstablishment] = await datastore.runQuery(query);
 
-    console.log(allEstablishment);
-
     if (allEstablishment && allEstablishment.length > 0) {
       return response.status(200).json(allEstablishment);
     } else {
