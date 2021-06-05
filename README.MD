@@ -4,7 +4,7 @@
 
 - Cadastro/Login de Usuários
 - CRUD dos estabelecimentos
-- Busca dos estabelecimento por localização
+- Busca dos estabelecimento por nome
 - Conexão com projeto GCP
 
 ## Tecnologias
