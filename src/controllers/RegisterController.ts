@@ -7,25 +7,35 @@ export class RegisterController {
 
     const key = datastore.key(['User', googleId]);
 
-    const userEntity = {
-      key: key,
-      data: {
-        googleId,
-        email,
-        name
-      }
-    };
+    const [userExist] = await datastore.get(key);
 
-    try {
-      await datastore.save(userEntity);
-      return response.status(201).json({
-        message: 'Usuário cadastrado com sucesso',
-        user: userEntity.data
-      });
-    } catch (error) {
-      return response.status(500).json({
-        message: 'Erro ao cadastrar usuário',
+    if (!userExist) {
+      const userEntity = {
+        key: key,
+        data: {
+          googleId,
+          email,
+          name
+        }
+      };
+
+      try {
+        await datastore.save(userEntity);
+        return response.status(201).json({
+          message: 'Usuário cadastrado com sucesso',
+          user: userEntity.data
+        });
+      } catch (error) {
+        return response.status(500).json({
+          message: 'Erro ao cadastrar usuário',
+        });
+      }
+    } else {
+      return response.status(409).json({
+        message: 'Usuário já cadastrado',
       });
     }
+
+
   }
 }

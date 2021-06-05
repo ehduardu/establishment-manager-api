@@ -5,8 +5,6 @@ export class SessionController {
   async index(request: Request, response: Response) {
     const { googleId, email } = request.params;
 
-    console.log(email, googleId);
-
     const key = datastore.key(['User', googleId]);
 
     const [user] = await datastore.get(key);
