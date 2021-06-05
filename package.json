@@ -1,5 +1,5 @@
 {
-  "name": "establishment-manager",
+  "name": "establishment-manager-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -22,11 +22,14 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/datastore": "^6.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.10",
     "@types/express": "^4.17.12",
     "@types/uuid": "^8.3.0",
     "ts-node-dev": "^1.1.6",
