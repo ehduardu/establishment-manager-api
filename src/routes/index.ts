@@ -10,7 +10,7 @@ const register = new RegisterController();
 const router = Router();
 
 router.get('/', (req, res) => {
-  return res.json({ msg: 'dale' }).send();
+  return res.json({ msg: 'Hello World' }).send();
 });
 
 router.get('/login/:googleId/:email', session.index);
